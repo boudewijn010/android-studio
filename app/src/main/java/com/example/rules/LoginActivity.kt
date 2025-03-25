@@ -34,6 +34,9 @@ class LoginActivity : AppCompatActivity() {
                 Log.d("Route", naamveld.text.toString())
                 Log.d("Route", passwordveld.text.toString().sha256Hash())
             }
+
+            startActivity(Intent(this, MainActivity::class.java))
+            finish()
         }
     }
 }
