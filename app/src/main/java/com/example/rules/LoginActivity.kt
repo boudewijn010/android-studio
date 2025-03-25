@@ -9,6 +9,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import android.util.Log
+import android.widget.Button
 
 class LoginActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -25,12 +26,14 @@ class LoginActivity : AppCompatActivity() {
             startActivity(Intent(this, RegisterActivity::class.java))
         }
 
-        val naamveld = findViewById<EditText>(R.id.etLoginUsername)
-        val passwordveld = findViewById<EditText>(R.id.etloginPassword)
+        findViewById<Button>(R.id.btLogin).setOnClickListener {
+            val naamveld = findViewById<EditText>(R.id.etLoginUsername)
+            val passwordveld = findViewById<EditText>(R.id.etloginPassword)
 
-        if (naamveld.text.isNotEmpty() && passwordveld.text.isNotEmpty()) {
-            log.d("Route", naamveld.text.toString())
-            log.d("Route", passwordveld.text.toString().sha256Hash())
+            if (naamveld.text.isNotEmpty() && passwordveld.text.isNotEmpty()) {
+                Log.d("Route", naamveld.text.toString())
+                Log.d("Route", passwordveld.text.toString().sha256Hash())
+            }
         }
     }
 }
